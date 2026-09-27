@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国矿业大学 GMC 校赛小白指南</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", system-ui, sans-serif;
+    color: #1a1a1a;
+    background: #f5f6f7;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 48px 56px;
+    box-shadow: 0 2px 16px rgba(0,0,0,.06);
+  }
+  header.cover {
+    text-align: center;
+    padding: 32px 0 28px;
+    border-bottom: 3px solid #02743B;
+    margin-bottom: 32px;
+  }
+  header.cover h1 { font-size: 28px; color: #02743B; margin-bottom: 10px; }
+  header.cover .sub { color: #666; font-size: 14px; }
+  header.cover .sub span { margin: 0 8px; }
+  .tldr {
+    background: #E5FFF2;
+    border-left: 4px solid #0FDC78;
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 32px;
+    font-size: 15px;
+  }
+  h2 {
+    font-size: 20px;
+    color: #02743B;
+    margin: 36px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e5e5e5;
+  }
+  h2 .num {
+    display: inline-block;
+    background: #02743B;
+    color: #fff;
+    width: 28px; height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 15px;
+    margin-right: 10px;
+  }
+  h3 { font-size: 16px; margin: 22px 0 10px; color: #171717; }
+  p { margin: 10px 0; }
+  ul, ol { margin: 10px 0 10px 24px; }
+  li { margin: 6px 0; }
+  strong { color: #02743B; }
+  blockquote {
+    background: #f7f7f8;
+    border-left: 4px solid #0FDC78;
+    padding: 12px 16px;
+    margin: 14px 0;
+    border-radius: 0 8px 8px 0;
+    color: #333;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 14px;
+  }
+  th, td {
+    border: 1px solid #e0e0e0;
+    padding: 9px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #02743B; color: #fff; font-weight: 600; }
+  tr:nth-child(even) td { background: #f7f7f8; }
+  .flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #f7f7f8;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 18px 12px;
+    margin: 14px 0;
+    font-size: 14px;
+  }
+  .flow .step {
+    background: #fff;
+    border: 1.5px solid #02743B;
+    color: #02743B;
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .flow .arrow { color: #999; font-weight: 700; }
+  .tag {
+    display: inline-block;
+    background: #E5FFF2;
+    color: #004D26;
+    border-radius: 4px;
+    padding: 1px 8px;
+    font-size: 12px;
+    margin-right: 4px;
+  }
+  .warn {
+    background: #FFF7E6;
+    border-left: 4px solid #EFAA17;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 14px 0;
+  }
+  .refs { font-size: 13px; color: #555; }
+  .refs a { color: #02743B; text-decoration: none; word-break: break-all; }
+  .refs a:hover { text-decoration: underline; }
+  footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e5e5;
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+  }
+  @media print {
+    body { background: #fff; font-size: 12.5px; }
+    .page { box-shadow: none; padding: 24px 28px; max-width: none; }
+    h2 { page-break-after: avoid; }
+    table, blockquote, .flow { page-break-inside: avoid; }
+  }
+  @media (max-width: 640px) {
+    .page { padding: 24px 18px; }
+    header.cover h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="cover">
+  <h1>中国矿业大学 GMC 校赛小白指南</h1>
+  <div class="sub"><span>适用对象：零基础首次参赛</span>·<span>目标：冲击一等奖（前 5%）</span></div>
+</header>
+
+<div class="tldr">
+  <strong>一句话看懂 GMC：</strong>5 个人组队，在电脑里开一家虚拟公司，和另外 7 支队伍在同一个市场里"商战"——每季度做一次经营决策（生产、定价、广告、买机器、招工、借钱……），计算机模拟市场结果，<strong>谁的股价高谁赢</strong>。
+</div>
+
+<h2><span class="num">1</span>GMC 是什么</h2>
+<ul>
+  <li><strong>全称</strong>：国际企业管理挑战赛（Global Management Challenge），1980 年起源于欧洲，EFMD 官方认证，全球最大规模的企业管理模拟比赛</li>
+  <li><strong>核心玩法</strong>：每季度提交一次《决策单》→ 计算机把所有队伍的决策放在一起"跑市场" → 收到《管理报告》→ 再做下一季度决策，循环 5 个财政季度，最终以<strong>公司股价</strong>定胜负</li>
+  <li><strong>决策内容</strong>：发展战略、生产、研发、营销、人力资源、投资、财务，最大限度模拟真实公司运作</li>
+  <li><strong>不是</strong>：不是答题、不是写论文、不是纯 PPT 路演（虽然有答辩环节）</li>
+</ul>
+
+<h3>矿大校赛的特点</h3>
+<table>
+  <tr><th>项目</th><th>说明</th></tr>
+  <tr><td>参赛规模</td><td>约 1200 人，全校各专业均可参加</td></tr>
+  <tr><td>比赛周期</td><td>约 1 个月（11 月中下旬开始，12 月中旬答辩结束，以当年通知为准）</td></tr>
+  <tr><td>奖项比例</td><td>一等奖 5%、二等奖 10%、三等奖 15%</td></tr>
+  <tr><td>含金量</td><td>校赛是校级荣誉；表现好可进<strong>全国赛</strong>（教育部认可 A 类学科竞赛），再往上是<strong>国际总决赛</strong></td></tr>
+</table>
+
+<h2><span class="num">2</span>校赛赛制与晋级路径</h2>
+
+<div class="flow">
+  <span class="step">热身赛</span><span class="arrow">→</span>
+  <span class="step">初赛</span><span class="arrow">→</span>
+  <span class="step">复活赛</span><span class="arrow">→</span>
+  <span class="step">决赛</span><span class="arrow">→</span>
+  <span class="step">答辩赛</span>
+</div>
+
+<table>
+  <tr><th>阶段</th><th>期数</th><th>形式</th><th>关键规则</th></tr>
+  <tr><td>热身赛</td><td>3 期</td><td>慢赛（一天一期）</td><td>不计成绩，熟悉系统</td></tr>
+  <tr><td>初赛</td><td>7 期</td><td>慢赛（一天一期）</td><td>赛区前 6 名直接晋级决赛，7-10 名进复活赛</td></tr>
+  <tr><td>复活赛</td><td>视情况</td><td>—</td><td>7-10 名争夺剩余决赛名额</td></tr>
+  <tr><td>决赛</td><td>5+3 期</td><td>5 期线上慢赛 + 3 期线下快赛</td><td>95 队分 5 赛区；第八期加赛由第一赛区第一名队伍成绩末位数字决定</td></tr>
+  <tr><td>答辩赛</td><td>—</td><td>PPT 汇报</td><td>各赛区前 3 名展示，最终决出 10 支一等奖</td></tr>
+</table>
+
+<h3>全国赛路径（校赛晋级后）</h3>
+<div class="flow">
+  <span class="step">全国初赛</span><span class="arrow">→</span>
+  <span class="step">全国复赛</span><span class="arrow">→</span>
+  <span class="step">半决赛</span><span class="arrow">→</span>
+  <span class="step">全国决赛</span><span class="arrow">→</span>
+  <span class="step">国际总决赛</span>
+</div>
+
+<h2><span class="num">3</span>往年获奖案例分析</h2>
+
+<h3>案例 1：北京理工大学 —— 世界冠军（第 26 届国际总决赛）</h3>
+<p><span class="tag">策略</span>产能碾压 + 成本控制</p>
+<ul>
+  <li>第一期大额投资，提高借款能力 → 第二期买 3 台机器</li>
+  <li>机器到位后保持两班制生产，成本远低于三班制对手</li>
+  <li>最后一轮利润爆发，股价领先第二名 2.11 元夺冠</li>
+</ul>
+<p><strong>借鉴：机器是胜负手，早买机器 = 低成本 = 定价权</strong></p>
+
+<h3>案例 2：中国矿业大学 MBA 队 —— 全国半决赛（第 40 届）</h3>
+<p><span class="tag">策略</span>系统建模 + 团队协作</p>
+<ul>
+  <li>队长凌晨 4 点起床打磨 Excel 决策模型；明确分工，全员讨论</li>
+  <li>复赛初始落后，逐期追赶，每期都有进步</li>
+</ul>
+<p><strong>借鉴：必须建模型，不能凭感觉拍脑袋；团队讨论越激烈越好</strong></p>
+
+<h3>案例 3：河北工业大学 —— 初参赛教训</h3>
+<p><span class="tag">策略</span>低价高产（执行有失误）</p>
+<ul>
+  <li>热身赛必须参加——它是积累经验、搞清数据关系的唯一途径</li>
+  <li>热身赛（3 轮）和初赛（5 轮）策略长期性不同，热身赛的激进做法（如高额股息）不能带进初赛</li>
+  <li>价格大起大落必死，要"稳定小幅调整"</li>
+  <li>不要做市场最高价（"枪打出头鸟"），价格排第二三位即可</li>
+</ul>
+<p><strong>借鉴：低价高产优于高价低产，市场占有率 &gt; 单价</strong></p>
+
+<h3>案例 4：广西大学"天生一队" —— 国际总决赛亚军（2024 年度）</h3>
+<p><span class="tag">策略</span>稳扎稳打 + 专业素养</p>
+<ul>
+  <li>历经 4 个月共 5 轮比赛，国际准决赛突围，晋级仅 6 席的国际总决赛</li>
+</ul>
+<p><strong>借鉴：长期主义，不要被短期排名干扰，每轮都要进步</strong></p>
+
+<h3>案例 5：深圳北理莫斯科大学"深藏 Blue 队" —— 全国一等奖</h3>
+<p><span class="tag">策略</span>商业策略 + 团队协作</p>
+<ul>
+  <li>"从广告投入到生产安排，从财务规划到人员裁减，每一个环节都紧密相连"</li>
+</ul>
+<p><strong>借鉴：重视每一个决策变量的联动效应</strong></p>
+
+<blockquote>
+  <strong>获奖公式 = 正确的战略方向 × 精确的决策模型 × 团队高效协作 × 稳定的执行心态</strong>
+</blockquote>
+
+<h2><span class="num">4</span>推荐方向与策略</h2>
+
+<p><strong>核心建议：走"低价高产 + 成本领先"的规模化路线</strong>，不建议走"高价低产 + 差异化"的精品路线。理由：</p>
+<ol>
+  <li><strong>新手容错率高</strong>：低价策略库存压力小，现金流安全，不容易破产</li>
+  <li><strong>校赛历史验证</strong>：历届获奖队伍大多采用规模化策略</li>
+  <li><strong>符合矿大学科优势</strong>：管院在运营管理、供应链方向有积累，答辩讲"成本领先战略"更容易获评委认可</li>
+  <li><strong>晋级全国赛适配性</strong>：全国赛市场规模大，低价高产更容易起量</li>
+</ol>
+
+<h3>决策对股价的影响权重（基于冠军队经验）</h3>
+<table>
+  <tr><th>决策维度</th><th>权重</th><th>说明</th></tr>
+  <tr><td><strong>产能与机器管理</strong></td><td>~30%</td><td>核心胜负手。第一期买机器，第二期到，成本优势碾压对手。人机比例失调是新手最大死因</td></tr>
+  <tr><td>定价与营销组合</td><td>~25%</td><td>价格不做最高（枪打出头鸟），低价高产最稳。广告和研发要匹配，不能盲目大投</td></tr>
+  <tr><td>财务与现金流</td><td>~25%</td><td>别让公司破产！资产负债率、股息政策、投资融资节奏决定你能走多远</td></tr>
+  <tr><td>生产与成本控制</td><td>~15%</td><td>班次安排、原材料采购、库存管理。两班制比三班制成本低 30% 以上，是冠军队的秘密武器</td></tr>
+  <tr><td>人力资源与研发</td><td>~5%</td><td>看似不重要，但人机比例失调会导致生产效率暴跌，间接决定成败</td></tr>
+</table>
+
+<h3>前 5 期具体打法</h3>
+<table>
+  <tr><th>期数</th><th>核心目标</th><th>关键操作</th></tr>
+  <tr><td>第 1 期</td><td>建立产能优势</td><td>投资拉满 → 买机器（2-3 台）→ 低价抢市场</td></tr>
+  <tr><td>第 2-3 期</td><td>成本领先</td><td>新机器到位 → 两班制生产 → 继续低价扩大份额</td></tr>
+  <tr><td>第 4-5 期</td><td>巩固排名</td><td>根据市场反馈微调价格，保持库存低位，准备决赛快节奏</td></tr>
+</table>
+
+<h3>关键洞察（世界冠军队复盘）</h3>
+<ul>
+  <li><strong>"投资融资买机器"是决赛级操作</strong>：第一期投资 → 提高借款额度 → 第二期买 3 台机器 → 产能碾压</li>
+  <li><strong>价格大起大落必死</strong>，要"稳定小幅调整"，市场占有率比单价更重要</li>
+  <li><strong>研发和广告的"弹性"每期不同</strong>：半决赛研发难投、决赛研发好投，要动态调整，不能盲目大投</li>
+</ul>
+
+<h2><span class="num">5</span>详细行动计划表</h2>
+
+<h3>阶段 0：组队与准备（现在 — 11 月初）</h3>
+<table>
+  <tr><th>时间</th><th>任务</th><th>交付物</th></tr>
+  <tr><td>本周</td><td>找 4 个靠谱队友（建议：1 营销 + 1 财务 + 1 生产 + 1 人力 + 你当总经理）</td><td>5 人小队群</td></tr>
+  <tr><td>本周</td><td>联系指导老师（矿大管院樊世清老师是 GMC 资深教练，优先找他）</td><td>导师确认</td></tr>
+  <tr><td>11 月上旬</td><td>精读《参赛手册》2 遍，重点理解决策单怎么填、管理报告怎么看</td><td>每人一份笔记</td></tr>
+  <tr><td>11 月上旬</td><td>搭建 Excel 决策模型（生产排程表、成本测算表、现金流预测表）</td><td>可运行的测算模型</td></tr>
+</table>
+
+<h3>阶段 1：热身赛（11 月中旬，3 期）</h3>
+<ul>
+  <li><strong>目标</strong>：熟悉系统，大胆试错，搞清楚数据之间的勾稽关系</li>
+  <li>每期决策后开复盘会，记录"我们以为的结果 vs 实际结果"的差异</li>
+  <li>测试不同价格弹性、广告效果、研发周期</li>
+  <li>不要怕垫底，热身赛成绩不计入总分</li>
+</ul>
+
+<h3>阶段 2：初赛（11 月下旬，7 期，一天一期）</h3>
+<ul>
+  <li><strong>目标</strong>：赛区前 6 名直接晋级，7-10 名打复活赛</li>
+  <li>严格执行既定战略，不要被对手带节奏</li>
+  <li>每天固定时间开会（建议晚上 9-11 点）：队长先做决策草案，全员讨论后提交</li>
+  <li>建立"决策日志"，记录每期的市场排名、股价变化、关键决策依据</li>
+</ul>
+
+<h3>阶段 3：决赛（12 月上旬，5 慢 + 3 快）</h3>
+<ul>
+  <li><strong>目标</strong>：赛区前 3 名进答辩</li>
+  <li>慢赛期：精细化运营，优化成本结构</li>
+  <li>快赛期（线下机房）：提前演练！3 期决策在几小时内完成，压力极大，必须提前模拟</li>
+  <li>注意"第八期加赛"规则：由第一赛区第一名队伍成绩末位数字决定，做好预案</li>
+</ul>
+
+<h3>阶段 4：答辩赛（12 月中旬）</h3>
+<ul>
+  <li><strong>目标</strong>：冲击一等奖</li>
+  <li>PPT 结构：战略复盘（40%）+ 关键决策亮点（30%）+ 危机处理（20%）+ 团队收获（10%）</li>
+  <li>准备 3 个"故事点"：比如"我们如何在第三期差点破产，通过 XX 操作逆转"</li>
+  <li>提前演练，控制 8-10 分钟</li>
+</ul>
+
+<h2><span class="num">6</span>最大化获奖概率的要点</h2>
+<ol>
+  <li><strong>抱紧樊世清老师的大腿</strong>：他是矿大 GMC 的灵魂人物，带过多支全国赛队伍，主动请教能少走 90% 的弯路</li>
+  <li><strong>Excel 模型是核心竞争力</strong>：不要凭感觉决策，每一个数字都要有模型支撑</li>
+  <li><strong>团队分工要明确</strong>：建议"总经理 + 营销 + 生产 + 财务 + 人力"五人制，但决策时必须全员讨论</li>
+  <li><strong>现金流红线不能碰</strong>：资产负债率超过 80% 或现金为负，直接出局</li>
+  <li><strong>答辩是"一等奖"的关键</strong>：经营成绩好 ≠ 一等奖，答辩表现决定最终排名，从决赛第一天就开始记录素材</li>
+</ol>
+
+<h2><span class="num">7</span>漏洞与优化建议</h2>
+
+<div class="warn">
+  <strong>本方案的漏洞</strong>
+  <ol>
+    <li><strong>时间估算偏差</strong>：本方案参考第 28 届（2023 年）时间，实际参赛届次的时间可能提前或延后，请以<strong>经济管理学院官网 / 创新创业实践基地通知</strong>为准</li>
+    <li><strong>模型通用性</strong>：策略基于 GMC 经典模型，但每年模拟器参数会微调，<strong>热身赛验证前不要重仓任何单一策略</strong></li>
+    <li><strong>答辩权重未知</strong>：校赛答辩和经营成绩的权重比例未公开，建议两手抓</li>
+  </ol>
+</div>
+
+<p><strong>可以优化的点</strong></p>
+<ol>
+  <li><strong>提前联系往届获奖学长</strong>：矿大每年 GMC 结束后都有总结会，去蹲点加微信，他们的 Excel 模型和决策日志是无价之宝</li>
+  <li><strong>关注赞助商活动</strong>：往届由高顿教育赞助，可能会有培训讲座或资料包，可以薅羊毛</li>
+  <li><strong>跨专业组队</strong>：找 1-2 个会计 / 财务专业的队友，财务分析是新手最大的短板</li>
+</ol>
+
+<h2><span class="num">8</span>下一步行动建议</h2>
+<ol>
+  <li>今天就去"中国矿业大学经济管理学院"官网搜"GMC"看最新通知</li>
+  <li>加入校赛 QQ 群 / 微信群（一般通知里有）</li>
+  <li>开始物色队友，优先找"能熬夜讨论 + 不甩锅"的靠谱人</li>
+</ol>
+
+<h2><span class="num">9</span>参考资料</h2>
+<ul class="refs">
+  <li><a href="https://sm.cumt.edu.cn/info/1047/3135.htm">中国矿业大学第 28 届 GMC 校内选拔赛取得圆满成功</a></li>
+  <li><a href="https://www.gmc-china.net/">GMC 中国赛区官网</a></li>
+  <li><a href="https://gmc-china.net/gmc/faq.html">GMC 常见问题 FAQ</a></li>
+  <li><a href="https://www.gmc-china.net/news/1637-e44160abc380ab2140e8.html">耕耘与收获 —— 记中国矿大一队挑战之旅</a></li>
+  <li><a href="https://gmc-china.net/news/1450-1e6cd68ea3526bac3e81.html">决战华沙 —— 北理工世界冠军复盘</a></li>
+  <li><a href="https://gmc-china.net/news/1335-4af9a1c7706fbc5cff09.html">GMC 大赛初体验 —— 写给初次参赛的朋友们</a></li>
+  <li><a href="https://www.gmc-china.net/news/1827-2024-gmc-int-fnl.html">广西大学荣获 2024 年度 GMC 国际总决赛亚军</a></li>
+  <li><a href="https://news.smbu.edu.cn/info/1083/13220.htm">深北莫经济系学子荣获全国一等奖</a></li>
+  <li><a href="https://mba.cumt.edu.cn/7c/f4/c14544a556276/page.htm">矿大管理学院 MBA 团队晋级第 40 届 GMC 全国半决赛</a></li>
+</ul>
+
+<footer>
+  中国矿业大学 GMC 校赛小白指南 · 整理日期 2026-09-27 · 赛制以当年官方通知为准
+</footer>
+
+</div>
+</body>
+</html>
